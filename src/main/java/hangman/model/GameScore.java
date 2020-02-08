@@ -1,5 +1,11 @@
 package hangman.model;
 
-public class GameScore {
-
+public interface GameScore  {
+	
+	/*
+	 * Calcula la puntuación
+	 * 
+	 */
+	
+	public int calculateScore(int correctCount, int incorrectCount)throws ExcepcionCuentasInvalidas;
 }
