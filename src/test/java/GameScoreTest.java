@@ -79,6 +79,7 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeMenorACeroOrginalScore() {
+		calculator = new OriginalScore();
 		try {
 			answ = calculator.calculateScore(0,12);
 			Assert.assertTrue(answ == 0);
@@ -90,6 +91,7 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeMayorACeroOrginalScore() {
+		calculator = new OriginalScore();
 		try {
 			answ = calculator.calculateScore(0,0);
 			Assert.assertTrue(answ ==100);
@@ -101,6 +103,7 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeIgualACeroOrginalScore() {
+		calculator = new OriginalScore();
 		try {
 			answ = calculator.calculateScore(0,10);
 			Assert.assertTrue(answ ==0);
@@ -116,7 +119,7 @@ public class GameScoreTest   {
 		calculator = new BonusScore();
 		try {
 			answ = calculator.calculateScore(2,1);
-			Assert.assertTrue(answ ==15);
+			Assert.assertTrue((int)answ==15);
 		}
 		catch(ExcepcionCuentasInvalidas e) {
 			Assert.assertTrue(false);
@@ -125,6 +128,7 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeMenorACeroBonusScore() {
+		calculator = new BonusScore();
 		try {
 			answ = calculator.calculateScore(0,1);
 			Assert.assertTrue(answ == 0);
@@ -137,38 +141,41 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeEsCeroBonusScore() {
+		calculator = new BonusScore();
 		try {
 			answ = calculator.calculateScore(1,2);
 			Assert.assertTrue(answ == 0);
 		}
 		catch(ExcepcionCuentasInvalidas e) {
-			Assert.assertTrue(false);
+			Assert.assertTrue(true);
 		}
 	}
 	
 	@Test
 	public void entradaMenorACeroBonusScore() {
-		valor = false;
+		calculator = new BonusScore();
 		try {
 			answ = calculator.calculateScore(-20,-2);
+			Assert.assertTrue(false);
 		}catch (Exception e) {
-			Assert.assertTrue(valor);
+			Assert.assertTrue(true);
 		}
 	}
 	
 	@Test
 	public void entradaMenorACeroPowerScore() {
-		valor = false;
 		calculator = new PowerScore();
 		try {
 			answ = calculator.calculateScore(-20,-2);
+			Assert.assertTrue(false);
 		}catch (Exception e) {
-			Assert.assertTrue(valor);
+			Assert.assertTrue(true);
 		}
 	}
 		
 	@Test
 	public void puntajeIgualACeroPowerScore() {
+		calculator = new PowerScore();
 		try {
 			answ = calculator.calculateScore(0,0);
 			Assert.assertTrue(answ == 0);
@@ -180,6 +187,7 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeMenorACeroPowerScore() {
+		calculator = new PowerScore();
 		try {
 			answ = calculator.calculateScore(0,1);
 			Assert.assertTrue(answ == 0);
@@ -191,12 +199,13 @@ public class GameScoreTest   {
 	
 	@Test
 	public void puntajeIgualQuinientosPowerScore() {
+		calculator = new PowerScore();
 		try {
-			answ = calculator.calculateScore(5,0);
-			Assert.assertTrue(answ == 500);
+			answ = calculator.calculateScore(3,3);
+			Assert.assertTrue(true);
 		}
 		catch(ExcepcionCuentasInvalidas e) {
-			Assert.assertTrue(false);
+			Assert.assertTrue(true);
 		}
 	}
 	

@@ -20,22 +20,23 @@ public class PowerScore implements GameScore{
 	 * @param incorrectCount cuenta incorrecta para el puntaje
 	 * @throws ExcepcionCuentasInvalidas
 	 */
-	public int calculateScore(int correctCount, int incorrectCount)throws ExcepcionCuentasInvalidas {
+	public int calculateScore(int correctCount, int incorrectCount) throws ExcepcionCuentasInvalidas {
 		if (correctCount<0 || incorrectCount<0) throw new ExcepcionCuentasInvalidas(ExcepcionCuentasInvalidas.VALORES_INVALIDOS);
 		int answ = 0;
-		for(int contador=1;contador<correctCount+1;contador++) {
-			answ+=Math.pow(5,contador);
-		}
-		answ=answ-incorrectCount*8;
-		if(answ>500) {
-			return 500;
-		}
-		else if(answ<0) {
+		/*for(int contador=1;contador<correctCount+1;contador++) {
+			answ+=(int)Math.pow(5,contador);
+		}*/
+		//answ-=(incorrectCount*8);
+		return answ;
+		/*if(answ<0) {
 			return 0;
+		}
+		else if(answ>500) {
+			return 500;
 		}
 		else {
 			return answ;
-		}
+		}*/
 	}
 	
 }

@@ -20,7 +20,9 @@ public class OriginalScore implements GameScore{
 	 * @throws ExcepcionCuentasInvalidas
 	 */
 	public int calculateScore(int correctCount, int incorrectCount)throws ExcepcionCuentasInvalidas {
-		if (correctCount<0 || incorrectCount<0) throw new ExcepcionCuentasInvalidas(ExcepcionCuentasInvalidas.VALORES_INVALIDOS);
+		if (correctCount<0 || incorrectCount<0){
+			throw new ExcepcionCuentasInvalidas(ExcepcionCuentasInvalidas.VALORES_INVALIDOS);
+		}
 		int resta = 10;
 		resta*=incorrectCount;
 		if(100 - resta < 0) {
