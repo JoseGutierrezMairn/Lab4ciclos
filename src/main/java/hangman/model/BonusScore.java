@@ -20,8 +20,12 @@ public class BonusScore implements GameScore{
 	 */
 	
 	public int calculateScore(int correctCount, int incorrectCount)throws ExcepcionCuentasInvalidas {
+		if (correctCount<0 || incorrectCount<0) throw new ExcepcionCuentasInvalidas(ExcepcionCuentasInvalidas.VALORES_INVALIDOS);
 		int answ = 0;
-		
+		answ=10*correctCount-5*correctCount;
+		if(answ<0) {
+			return 0;
+		}
 		return answ;
 	}
 
