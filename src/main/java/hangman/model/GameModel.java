@@ -16,6 +16,9 @@ import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import hangman.setup.guice.HangmanFactoryScore;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 
 public class GameModel {
@@ -65,6 +68,8 @@ public class GameModel {
     //purpose: check if user guess is in string. Return a
     // list of positions if character is found in string
     public ArrayList<Integer> makeGuess(String guess){
+		Injector injector = Guice.createInjector(new HangmanFactoryScore());
+		GameScore puntaje=injector.getInstance(GameScore.class);
         char guessChar = guess.charAt(0);
         ArrayList<Integer> positions = new ArrayList<>();
         for(int i = 0; i < randomWordCharArray.length; i++){
@@ -74,10 +79,12 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            gameScore -= 10;
         } else {
             correctCount += positions.size();
-        }
+        }try{
+			gameScore = puntaje.calculateScore(correctCount,incorrectCount);
+		}catch(ExcepcionCuentasInvalidas e){
+		}
         return positions;
         
     }

@@ -10,9 +10,6 @@ package hangman.setup.guice;
  * @author 2106913
  */
 
-import hangman.model.BonusScore; 
-import hangman.model.BonusScore; 
-import hangman.model.GameScore;
 import hangman.model.French;
 import hangman.model.Language;
 import hangman.model.dictionary.HangmanDictionary;
