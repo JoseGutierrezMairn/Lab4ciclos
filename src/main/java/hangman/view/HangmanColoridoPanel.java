@@ -11,17 +11,17 @@
 ****************************************************************/ 
 package hangman.view;
 
+import com.google.inject.Inject;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-
 public class HangmanColoridoPanel extends HangmanPanel {
     
     int incorrectCount;
-    
+    @Inject
     public HangmanColoridoPanel(){
         incorrectCount = 0;
     }
